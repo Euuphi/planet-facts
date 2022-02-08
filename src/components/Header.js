@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
+    border-bottom: 0.5px solid #38384f;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.8rem 3.2rem;
+    padding: 2.4rem 4.8rem;
 `;
 
 const Title = styled.span`
@@ -18,6 +19,7 @@ const Title = styled.span`
 
 const Nav = styled.nav`
     display: flex;
+    gap: 4.8rem;
 `;
 
 const Link = styled.a`
@@ -38,6 +40,13 @@ const Header = () => {
             <Title>The Planets</Title>
             <Nav>
                 <Link href="/mercury">Mercury</Link>
+                <Link href="/venus">Venus</Link>
+                <Link href="/earth">Earth</Link>
+                <Link href="/mars">Mars</Link>
+                <Link href="/jupiter">Jupiter</Link>
+                <Link href="/saturn">Saturn</Link>
+                <Link href="/uranus">Uranus</Link>
+                <Link href="/neptune">Neptune</Link>
             </Nav>
         </HeaderContainer>
     );
