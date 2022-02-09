@@ -16,7 +16,7 @@ const Grid = styled.div`
     gap: 12.8rem;
     grid-template-columns: 5fr 2fr;
     justify-items: center;
-    margin: 12.8rem auto 8rem;
+    margin: 0 auto;
     max-width: 140rem;
 `;
 
