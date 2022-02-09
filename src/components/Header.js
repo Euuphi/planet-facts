@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+// Themes
+import colors from "styles/colors";
 
 const HeaderContainer = styled.header`
-    border-bottom: 0.5px solid #38384f;
+    border-bottom: 1px solid ${colors.shade};
     display: flex;
     align-items: center;
     justify-content: space-between;
