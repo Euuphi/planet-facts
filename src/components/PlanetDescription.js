@@ -7,6 +7,7 @@ import mercury from "images/planets/mercury/planet-mercury.svg";
 import sourceIcon from "images/icon-source.svg";
 // Components
 import { H1 } from "./Headings";
+import ButtonsSection from "./ButtonsSection";
 
 const Grid = styled.div`
     display: grid;
@@ -71,6 +72,7 @@ const PlanetDescription = () => {
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
                 </Source>
+                <ButtonsSection />
             </PlanetDescriptionBox>
         </Grid>
     );
