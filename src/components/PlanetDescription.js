@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-
-// Styles
+// Themes
 import colors from "styles/colors";
-
 // Images
 import mercury from "images/planets/mercury/planet-mercury.svg";
 import sourceIcon from "images/icon-source.svg";
-
 // Components
 import { H1 } from "./Headings";
 
@@ -40,10 +37,16 @@ const Text = styled.p`
     margin-bottom: 2.4rem;
 `;
 
+const Source = styled(Text)`
+    color: ${colors.grey};
+    margin-bottom: 4.8rem;
+`;
+
 const Link = styled.a`
     &:link,
     &:visited {
         color: ${colors.grey};
+        font-weight: 700;
     }
 `;
 
@@ -62,12 +65,12 @@ const PlanetDescription = () => {
                     is one of four terrestrial planets in the Solar System, and
                     is a rocky body like Earth.
                 </Text>
-                <Text>
-                    Source:{" "}
+                <Source>
+                    Source :{" "}
                     <Link href="https://en.wikipedia.org/wiki/Mercury_(planet)">
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
-                </Text>
+                </Source>
             </PlanetDescriptionBox>
         </Grid>
     );
