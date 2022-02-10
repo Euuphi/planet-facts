@@ -8,6 +8,7 @@ import sourceIcon from "images/icon-source.svg";
 // Components
 import { H1 } from "./Headings";
 import ButtonsSection from "./ButtonsSection";
+import PlanetStats from "./PlanetStats";
 
 const Grid = styled.div`
     display: grid;
@@ -74,6 +75,7 @@ const PlanetInfo = () => {
                 </Source>
                 <ButtonsSection />
             </PlanetDescriptionBox>
+            <PlanetStats />
         </Grid>
     );
 };
