@@ -7,7 +7,6 @@ const BackgroundStars = styled.div`
     background: url(${stars});
     background-position: center center;
     background-size: auto;
-    height: 100vh;
     width: 100%;
 `;
 
