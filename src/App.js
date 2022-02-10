@@ -4,14 +4,14 @@ import React from "react";
 import Section from "components/Section";
 import BackgroundStars from "components/BackgroundStars";
 import Header from "components/Header.js";
-import PlanetDescription from "components/PlanetDescription";
+import PlanetInfo from "components/PlanetInfo";
 
 function App() {
     return (
         <BackgroundStars>
             <Header />
             <Section>
-                <PlanetDescription />
+                <PlanetInfo />
             </Section>
         </BackgroundStars>
     );

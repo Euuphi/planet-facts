@@ -8,13 +8,14 @@ import sourceIcon from "images/icon-source.svg";
 // Components
 import { H1 } from "./Headings";
 import ButtonsSection from "./ButtonsSection";
+import PlanetStats from "./PlanetStats";
 
 const Grid = styled.div`
     display: grid;
-    gap: 12.8rem;
+    gap: 8rem 12.8rem;
     grid-template-columns: 5fr 2fr;
     justify-items: center;
-    margin: 0 auto;
+    margin: 0 auto 8rem;
     max-width: 140rem;
 `;
 
@@ -51,7 +52,7 @@ const Link = styled.a`
     }
 `;
 
-const PlanetDescription = () => {
+const PlanetInfo = () => {
     return (
         <Grid>
             <PlanetImageBox>
@@ -74,8 +75,9 @@ const PlanetDescription = () => {
                 </Source>
                 <ButtonsSection />
             </PlanetDescriptionBox>
+            <PlanetStats />
         </Grid>
     );
 };
 
-export default PlanetDescription;
+export default PlanetInfo;
