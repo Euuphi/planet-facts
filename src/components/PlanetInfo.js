@@ -15,7 +15,7 @@ import PlanetStats from "./PlanetStats";
 // Styled Components
 const Grid = styled.div`
     display: grid;
-    gap: 8rem 12.8rem;
+    gap: 7.2rem 12.8rem;
     grid-template-columns: 5fr 2fr;
     justify-items: center;
     margin: 0 auto;
@@ -39,9 +39,13 @@ const HeadingPrimary = styled(H1)`
     margin-bottom: 3.2rem;
 `;
 
-const PlanetDescriptionBox = styled.div`
+const PlanetInfoBox = styled.div`
     display: flex;
     flex-direction: column;
+`;
+
+const PlanetDescriptionBox = styled.div`
+    height: 23.5rem;
 `;
 
 const Description = styled.p`
@@ -71,7 +75,7 @@ const PlanetInfo = () => {
     const allPlanetsData = data;
 
     // Placeholder for: Extract id of planet from url
-    const id = "earth";
+    const id = "jupiter";
 
     // Query for selected planet from all planets data
     const planetData = allPlanetsData[id];
@@ -99,21 +103,23 @@ const PlanetInfo = () => {
                     />
                 )}
             </PlanetImageBox>
-            <PlanetDescriptionBox>
+            <PlanetInfoBox>
                 <HeadingPrimary>{planetData.name}</HeadingPrimary>
-                <Description>{planetData[view].content}</Description>
-                <Source>
-                    Source :{" "}
-                    <Link href={planetData[view].source}>
-                        Wikipedia <img src={sourceIcon} alt="Icon" />
-                    </Link>
-                </Source>
+                <PlanetDescriptionBox>
+                    <Description>{planetData[view].content}</Description>
+                    <Source>
+                        Source :{" "}
+                        <Link href={planetData[view].source}>
+                            Wikipedia <img src={sourceIcon} alt="Icon" />
+                        </Link>
+                    </Source>
+                </PlanetDescriptionBox>
                 <ButtonsSection
                     activeColor={colors[id]}
                     clickHandler={setView}
                     view={view}
                 />
-            </PlanetDescriptionBox>
+            </PlanetInfoBox>
             <PlanetStats stats={planetData} />
         </Grid>
     );
