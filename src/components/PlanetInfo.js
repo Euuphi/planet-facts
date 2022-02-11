@@ -3,9 +3,7 @@ import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
 // Images
-import mercury from "images/planets/mercury/planet-mercury.svg";
-import mercuryInternal from "images/planets/mercury/planet-mercury-internal.svg";
-import mercurySurface from "images/planets/mercury/geology-mercury.png";
+import { planetImages } from "images/planetImages";
 import sourceIcon from "images/icon-source.svg";
 // Data
 import * as data from "data/planetData.json";
@@ -73,16 +71,21 @@ const PlanetInfo = () => {
     const allPlanetsData = data;
 
     // Placeholder for: Extract id of planet from url
-    const id = "mercury";
+    const id = "saturn";
 
     // Query for selected planet from all planets data
     const planetData = allPlanetsData[id];
+    const planetImage = planetImages[id];
 
     return (
         <Grid>
             <PlanetImageBox>
                 <img
-                    src={view === "structure" ? mercuryInternal : mercury}
+                    src={
+                        view === "structure"
+                            ? planetImage.structure
+                            : planetImage.overview
+                    }
                     alt={
                         view === "structure"
                             ? `Planet ${planetData.name} with half planet cutout to show internal structure`
@@ -91,7 +94,7 @@ const PlanetInfo = () => {
                 />
                 {view === "geology" && (
                     <SurfaceImage
-                        src={mercurySurface}
+                        src={planetImage.geology}
                         alt={"Surface of " + planetData.name}
                     />
                 )}
