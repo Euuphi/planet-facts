@@ -71,7 +71,7 @@ const PlanetInfo = () => {
     const allPlanetsData = data;
 
     // Placeholder for: Extract id of planet from url
-    const id = "saturn";
+    const id = "earth";
 
     // Query for selected planet from all planets data
     const planetData = allPlanetsData[id];
@@ -108,7 +108,11 @@ const PlanetInfo = () => {
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
                 </Source>
-                <ButtonsSection clickHandler={setView} view={view} />
+                <ButtonsSection
+                    activeColor={colors[id]}
+                    clickHandler={setView}
+                    view={view}
+                />
             </PlanetDescriptionBox>
             <PlanetStats stats={planetData} />
         </Grid>

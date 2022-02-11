@@ -6,10 +6,10 @@ import colors from "styles/colors";
 import { H3 } from "./Headings";
 
 const Button = styled.button`
-    background-color: ${({ active }) =>
-        active ? colors.mercury : colors.main};
+    background-color: ${({ active, activeColor }) =>
+        active ? activeColor : colors.main};
     border: 1px solid
-        ${({ active }) => (active ? colors.mercury : colors.shade)};
+        ${({ active, activeColor }) => (active ? activeColor : colors.shade)};
     color: #fff;
     display: inline-block;
     font-family: "Spartan";
@@ -45,23 +45,26 @@ const FlexContainer = styled.div`
     gap: 1.6rem;
 `;
 
-const ButtonsSection = ({ clickHandler, view }) => {
+const ButtonsSection = ({ clickHandler, view, activeColor }) => {
     return (
         <FlexContainer>
             <Button
                 active={view === "overview"}
+                activeColor={activeColor}
                 onClick={() => clickHandler("overview")}>
                 <H3 as="span">01</H3>
                 <H3>Overview</H3>
             </Button>
             <Button
                 active={view === "structure"}
+                activeColor={activeColor}
                 onClick={() => clickHandler("structure")}>
                 <H3 as="span">02</H3>
                 <H3>Internal Structure</H3>
             </Button>
             <Button
                 active={view === "geology"}
+                activeColor={activeColor}
                 onClick={() => clickHandler("geology")}>
                 <H3 as="span">03</H3>
                 <H3>Surface Geology</H3>
