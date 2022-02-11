@@ -96,7 +96,7 @@ const PlanetInfo = () => {
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
                 </Source>
-                <ButtonsSection clickHandler={setView} />
+                <ButtonsSection clickHandler={setView} view={view} />
             </PlanetDescriptionBox>
             <PlanetStats />
         </Grid>

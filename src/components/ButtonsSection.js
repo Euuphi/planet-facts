@@ -1,13 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // Themes
 import colors from "styles/colors";
 // Components
 import { H3 } from "./Headings";
 
 const Button = styled.button`
-    background-color: ${colors.main};
-    border: 1px solid ${colors.shade};
+    background-color: ${({ active }) =>
+        active ? colors.mercury : colors.main};
+    border: 1px solid
+        ${({ active }) => (active ? colors.mercury : colors.shade)};
     color: #fff;
     display: inline-block;
     font-family: "Spartan";
@@ -19,20 +21,16 @@ const Button = styled.button`
     width: 100%;
 
     &:hover {
-        background-color: #313148;
-    }
-
-    &:focus {
-        background-color: ${colors.mercury};
-        border-color: ${colors.mercury};
-
-        & span {
-            color: #a0cedd;
-        }
+        /* Only change hover style if button is not active */
+        ${({ active }) =>
+            active ||
+            css`
+                background-color: #313148;
+            `}
     }
 
     & span {
-        color: ${colors.grey};
+        color: ${({ active }) => (active ? "#a0cedd" : colors.grey)};
         padding-right: 3.2rem;
     }
 
@@ -47,18 +45,24 @@ const FlexContainer = styled.div`
     gap: 1.6rem;
 `;
 
-const ButtonsSection = ({ clickHandler }) => {
+const ButtonsSection = ({ clickHandler, view }) => {
     return (
         <FlexContainer>
-            <Button onClick={() => clickHandler("overview")}>
+            <Button
+                active={view === "overview"}
+                onClick={() => clickHandler("overview")}>
                 <H3 as="span">01</H3>
                 <H3>Overview</H3>
             </Button>
-            <Button onClick={() => clickHandler("internal")}>
+            <Button
+                active={view === "internal"}
+                onClick={() => clickHandler("internal")}>
                 <H3 as="span">02</H3>
                 <H3>Internal Structure</H3>
             </Button>
-            <Button onClick={() => clickHandler("surface")}>
+            <Button
+                active={view === "surface"}
+                onClick={() => clickHandler("surface")}>
                 <H3 as="span">03</H3>
                 <H3>Surface Geology</H3>
             </Button>
