@@ -107,7 +107,7 @@ const PlanetInfo = () => {
                 </Source>
                 <ButtonsSection clickHandler={setView} view={view} />
             </PlanetDescriptionBox>
-            <PlanetStats />
+            <PlanetStats stats={planetData} />
         </Grid>
     );
 };

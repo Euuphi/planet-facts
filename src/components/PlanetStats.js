@@ -31,24 +31,24 @@ const StatText = styled(H2)`
     text-transform: uppercase;
 `;
 
-const PlanetStats = () => {
+const PlanetStats = ({ stats }) => {
     return (
         <FlexContainer>
             <StatBox>
                 <StatTitle>Rotation Time</StatTitle>
-                <StatText as="span">58.6 Days</StatText>
+                <StatText as="span">{stats.rotation}</StatText>
             </StatBox>
             <StatBox>
                 <StatTitle>Revolution Time</StatTitle>
-                <StatText as="span">87.97 Days</StatText>
+                <StatText as="span">{stats.revolution}</StatText>
             </StatBox>
             <StatBox>
                 <StatTitle>Radius</StatTitle>
-                <StatText as="span">2439.7 km</StatText>
+                <StatText as="span">{stats.radius}</StatText>
             </StatBox>
             <StatBox>
                 <StatTitle>Average Temp.</StatTitle>
-                <StatText as="span">430&#176;C</StatText>
+                <StatText as="span">{stats.temperature}</StatText>
             </StatBox>
         </FlexContainer>
     );
