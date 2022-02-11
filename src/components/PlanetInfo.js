@@ -8,6 +8,7 @@ import sourceIcon from "images/icon-source.svg";
 // Data
 import * as data from "data/planetData.json";
 // Components
+import Section from "components/Section";
 import { H1 } from "./Headings";
 import ButtonsSection from "./ButtonsSection";
 import PlanetStats from "./PlanetStats";
@@ -82,46 +83,48 @@ const PlanetInfo = () => {
     const planetImage = planetImages[id];
 
     return (
-        <Grid>
-            <PlanetImageBox>
-                <img
-                    src={
-                        view === "structure"
-                            ? planetImage.structure
-                            : planetImage.overview
-                    }
-                    alt={
-                        view === "structure"
-                            ? `Planet ${planetData.name} with half planet cutout to show internal structure`
-                            : `Planet ${planetData.name} from space`
-                    }
-                />
-                {view === "geology" && (
-                    <SurfaceImage
-                        src={planetImage.geology}
-                        alt={"Surface of " + planetData.name}
+        <Section>
+            <Grid>
+                <PlanetImageBox>
+                    <img
+                        src={
+                            view === "structure"
+                                ? planetImage.structure
+                                : planetImage.overview
+                        }
+                        alt={
+                            view === "structure"
+                                ? `Planet ${planetData.name} with half planet cutout to show internal structure`
+                                : `Planet ${planetData.name} from space`
+                        }
                     />
-                )}
-            </PlanetImageBox>
-            <PlanetInfoBox>
-                <HeadingPrimary>{planetData.name}</HeadingPrimary>
-                <PlanetDescriptionBox>
-                    <Description>{planetData[view].content}</Description>
-                    <Source>
-                        Source :{" "}
-                        <Link href={planetData[view].source}>
-                            Wikipedia <img src={sourceIcon} alt="Icon" />
-                        </Link>
-                    </Source>
-                </PlanetDescriptionBox>
-                <ButtonsSection
-                    activeColor={colors[id]}
-                    clickHandler={setView}
-                    view={view}
-                />
-            </PlanetInfoBox>
-            <PlanetStats stats={planetData} />
-        </Grid>
+                    {view === "geology" && (
+                        <SurfaceImage
+                            src={planetImage.geology}
+                            alt={"Surface of " + planetData.name}
+                        />
+                    )}
+                </PlanetImageBox>
+                <PlanetInfoBox>
+                    <HeadingPrimary>{planetData.name}</HeadingPrimary>
+                    <PlanetDescriptionBox>
+                        <Description>{planetData[view].content}</Description>
+                        <Source>
+                            Source :{" "}
+                            <Link href={planetData[view].source}>
+                                Wikipedia <img src={sourceIcon} alt="Icon" />
+                            </Link>
+                        </Source>
+                    </PlanetDescriptionBox>
+                    <ButtonsSection
+                        activeColor={colors[id]}
+                        clickHandler={setView}
+                        view={view}
+                    />
+                </PlanetInfoBox>
+                <PlanetStats stats={planetData} />
+            </Grid>
+        </Section>
     );
 };
 
