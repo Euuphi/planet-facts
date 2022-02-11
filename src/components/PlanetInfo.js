@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
 // Images
 import mercury from "images/planets/mercury/planet-mercury.svg";
+import mercuryInternal from "images/planets/mercury/planet-mercury-internal.svg";
 import mercurySurface from "images/planets/mercury/geology-mercury.png";
 import sourceIcon from "images/icon-source.svg";
 // Components
@@ -63,12 +64,22 @@ const Link = styled.a`
 `;
 
 const PlanetInfo = () => {
-    //
+    // State to control what image is displayed
+    const [view, setView] = useState("overview");
+
     return (
         <Grid>
             <PlanetImageBox>
-                <img src={mercury} alt="Planet Mercury" />
-                <SurfaceImage src={mercurySurface} alt="Surface of Mercury" />
+                <img
+                    src={view === "internal" ? mercuryInternal : mercury}
+                    alt="Planet Mercury"
+                />
+                {view === "surface" && (
+                    <SurfaceImage
+                        src={mercurySurface}
+                        alt="Surface of Mercury"
+                    />
+                )}
             </PlanetImageBox>
             <PlanetDescriptionBox>
                 <HeadingPrimary>Mercury</HeadingPrimary>
@@ -85,7 +96,7 @@ const PlanetInfo = () => {
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
                 </Source>
-                <ButtonsSection />
+                <ButtonsSection clickHandler={setView} />
             </PlanetDescriptionBox>
             <PlanetStats />
         </Grid>

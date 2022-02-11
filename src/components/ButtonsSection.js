@@ -47,18 +47,18 @@ const FlexContainer = styled.div`
     gap: 1.6rem;
 `;
 
-const ButtonsSection = () => {
+const ButtonsSection = ({ clickHandler }) => {
     return (
         <FlexContainer>
-            <Button>
+            <Button onClick={() => clickHandler("overview")}>
                 <H3 as="span">01</H3>
                 <H3>Overview</H3>
             </Button>
-            <Button>
+            <Button onClick={() => clickHandler("internal")}>
                 <H3 as="span">02</H3>
                 <H3>Internal Structure</H3>
             </Button>
-            <Button>
+            <Button onClick={() => clickHandler("surface")}>
                 <H3 as="span">03</H3>
                 <H3>Surface Geology</H3>
             </Button>
