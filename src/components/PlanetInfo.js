@@ -4,12 +4,14 @@ import styled from "styled-components";
 import colors from "styles/colors";
 // Images
 import mercury from "images/planets/mercury/planet-mercury.svg";
+import mercurySurface from "images/planets/mercury/geology-mercury.png";
 import sourceIcon from "images/icon-source.svg";
 // Components
 import { H1 } from "./Headings";
 import ButtonsSection from "./ButtonsSection";
 import PlanetStats from "./PlanetStats";
 
+// Styled Components
 const Grid = styled.div`
     display: grid;
     gap: 8rem 12.8rem;
@@ -22,6 +24,14 @@ const Grid = styled.div`
 const PlanetImageBox = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+`;
+
+const SurfaceImage = styled.img`
+    height: 19.9rem;
+    position: absolute;
+    transform: translateY(90%);
 `;
 
 const HeadingPrimary = styled(H1)`
@@ -53,10 +63,12 @@ const Link = styled.a`
 `;
 
 const PlanetInfo = () => {
+    //
     return (
         <Grid>
             <PlanetImageBox>
                 <img src={mercury} alt="Planet Mercury" />
+                <SurfaceImage src={mercurySurface} alt="Surface of Mercury" />
             </PlanetImageBox>
             <PlanetDescriptionBox>
                 <HeadingPrimary>Mercury</HeadingPrimary>
