@@ -7,6 +7,8 @@ import mercury from "images/planets/mercury/planet-mercury.svg";
 import mercuryInternal from "images/planets/mercury/planet-mercury-internal.svg";
 import mercurySurface from "images/planets/mercury/geology-mercury.png";
 import sourceIcon from "images/icon-source.svg";
+// Data
+import * as data from "data/planetData.json";
 // Components
 import { H1 } from "./Headings";
 import ButtonsSection from "./ButtonsSection";
@@ -44,13 +46,13 @@ const PlanetDescriptionBox = styled.div`
     flex-direction: column;
 `;
 
-const Text = styled.p`
+const Description = styled.p`
     font-size: 1.4rem;
     line-height: 2.5rem;
     margin-bottom: 1.6rem;
 `;
 
-const Source = styled(Text)`
+const Source = styled(Description)`
     color: ${colors.grey};
     margin-bottom: 3.2rem;
 `;
@@ -67,32 +69,39 @@ const PlanetInfo = () => {
     // State to control what image is displayed
     const [view, setView] = useState("overview");
 
+    // Create object of imported planet data
+    const allPlanetsData = data;
+
+    // Placeholder for: Extract id of planet from url
+    const id = "mercury";
+
+    // Query for selected planet from all planets data
+    const planetData = allPlanetsData[id];
+
     return (
         <Grid>
             <PlanetImageBox>
                 <img
-                    src={view === "internal" ? mercuryInternal : mercury}
-                    alt="Planet Mercury"
+                    src={view === "structure" ? mercuryInternal : mercury}
+                    alt={
+                        view === "structure"
+                            ? `Planet ${planetData.name} with half planet cutout to show internal structure`
+                            : `Planet ${planetData.name} from space`
+                    }
                 />
-                {view === "surface" && (
+                {view === "geology" && (
                     <SurfaceImage
                         src={mercurySurface}
-                        alt="Surface of Mercury"
+                        alt={"Surface of " + planetData.name}
                     />
                 )}
             </PlanetImageBox>
             <PlanetDescriptionBox>
-                <HeadingPrimary>Mercury</HeadingPrimary>
-                <Text>
-                    Mercury is the smallest planet in the Solar System and the
-                    closest to the Sun. Its orbit around the Sun takes 87.97
-                    Earth days, the shortest of all the Sun's planets. Mercury
-                    is one of four terrestrial planets in the Solar System, and
-                    is a rocky body like Earth.
-                </Text>
+                <HeadingPrimary>{planetData.name}</HeadingPrimary>
+                <Description>{planetData[view].content}</Description>
                 <Source>
                     Source :{" "}
-                    <Link href="https://en.wikipedia.org/wiki/Mercury_(planet)">
+                    <Link href={planetData[view].source}>
                         Wikipedia <img src={sourceIcon} alt="Icon" />
                     </Link>
                 </Source>

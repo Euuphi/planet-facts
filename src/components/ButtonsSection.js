@@ -55,14 +55,14 @@ const ButtonsSection = ({ clickHandler, view }) => {
                 <H3>Overview</H3>
             </Button>
             <Button
-                active={view === "internal"}
-                onClick={() => clickHandler("internal")}>
+                active={view === "structure"}
+                onClick={() => clickHandler("structure")}>
                 <H3 as="span">02</H3>
                 <H3>Internal Structure</H3>
             </Button>
             <Button
-                active={view === "surface"}
-                onClick={() => clickHandler("surface")}>
+                active={view === "geology"}
+                onClick={() => clickHandler("geology")}>
                 <H3 as="span">03</H3>
                 <H3>Surface Geology</H3>
             </Button>
