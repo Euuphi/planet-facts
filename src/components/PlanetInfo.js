@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
@@ -76,7 +77,7 @@ const PlanetInfo = () => {
     const allPlanetsData = data;
 
     // Placeholder for: Extract id of planet from url
-    const id = "jupiter";
+    const { planet: id } = useParams();
 
     // Query for selected planet from all planets data
     const planetData = allPlanetsData[id];
