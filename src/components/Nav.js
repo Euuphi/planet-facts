@@ -30,42 +30,74 @@ const Nav = () => {
         <nav>
             <NavList>
                 <NavItem>
-                    <NavLink to="/mercury" activeClassName="active">
+                    <NavLink
+                        to="/mercury"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Mercury
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/venus" activeClassName="active">
+                    <NavLink
+                        to="/venus"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Venus
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/earth" activeClassName="active">
+                    <NavLink
+                        to="/earth"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Earth
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/mars" activeClassName="active">
+                    <NavLink
+                        to="/mars"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Mars
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/jupiter" activeClassName="active">
+                    <NavLink
+                        to="/jupiter"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Jupiter
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/saturn" activeClassName="active">
+                    <NavLink
+                        to="/saturn"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Saturn
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/uranus" activeClassName="active">
+                    <NavLink
+                        to="/uranus"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Uranus
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/neptune" activeClassName="active">
+                    <NavLink
+                        to="/neptune"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                         Neptune
                     </NavLink>
                 </NavItem>
