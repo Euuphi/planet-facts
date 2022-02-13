@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
+// Components
+import Nav from "./Nav";
 
 const HeaderContainer = styled.header`
     border-bottom: 1px solid ${colors.shade};
@@ -19,37 +21,11 @@ const Title = styled.span`
     text-transform: uppercase;
 `;
 
-const Nav = styled.nav`
-    display: flex;
-    gap: 4.8rem;
-`;
-
-const Link = styled.a`
-    &:link,
-    &:visited {
-        color: #fff;
-        font-size: 1.1rem;
-        font-weight: 600;
-        letter-spacing: 0.1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-`;
-
 const Header = () => {
     return (
         <HeaderContainer>
             <Title>The Planets</Title>
-            <Nav>
-                <Link href="/mercury">Mercury</Link>
-                <Link href="/venus">Venus</Link>
-                <Link href="/earth">Earth</Link>
-                <Link href="/mars">Mars</Link>
-                <Link href="/jupiter">Jupiter</Link>
-                <Link href="/saturn">Saturn</Link>
-                <Link href="/uranus">Uranus</Link>
-                <Link href="/neptune">Neptune</Link>
-            </Nav>
+            <Nav />
         </HeaderContainer>
     );
 };
