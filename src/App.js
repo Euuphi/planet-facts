@@ -1,16 +1,14 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 // Components
-import BackgroundStars from "components/BackgroundStars";
-import Header from "components/Header.js";
-import PlanetInfo from "components/PlanetInfo";
+import Planets from "pages/Planets";
 
 function App() {
     return (
-        <BackgroundStars>
-            <Header />
-            <PlanetInfo />
-        </BackgroundStars>
+        <Routes>
+            <Route path="/:planet" element={<Planets />} />
+        </Routes>
     );
 }
 
