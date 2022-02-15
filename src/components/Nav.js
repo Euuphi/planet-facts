@@ -1,6 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
+// Themes
+import colors from "styles/colors";
 
 const NavList = styled.ul`
     display: flex;
@@ -21,15 +23,19 @@ const NavItem = styled.li`
     }
 
     .active {
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid ${({ activeColor }) => activeColor};
+        padding-bottom: 0.4rem;
     }
 `;
 
 const Nav = () => {
+    const { planet } = useParams();
+    const planetColor = colors[planet];
+
     return (
         <nav>
             <NavList>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/mercury"
                         className={({ isActive }) =>
@@ -38,7 +44,7 @@ const Nav = () => {
                         Mercury
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/venus"
                         className={({ isActive }) =>
@@ -47,7 +53,7 @@ const Nav = () => {
                         Venus
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/earth"
                         className={({ isActive }) =>
@@ -56,7 +62,7 @@ const Nav = () => {
                         Earth
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/mars"
                         className={({ isActive }) =>
@@ -65,7 +71,7 @@ const Nav = () => {
                         Mars
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/jupiter"
                         className={({ isActive }) =>
@@ -74,7 +80,7 @@ const Nav = () => {
                         Jupiter
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/saturn"
                         className={({ isActive }) =>
@@ -83,7 +89,7 @@ const Nav = () => {
                         Saturn
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/uranus"
                         className={({ isActive }) =>
@@ -92,7 +98,7 @@ const Nav = () => {
                         Uranus
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem activeColor={planetColor}>
                     <NavLink
                         to="/neptune"
                         className={({ isActive }) =>
