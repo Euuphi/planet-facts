@@ -29,84 +29,38 @@ const NavItem = styled.li`
 `;
 
 const Nav = () => {
+    // Get name of planet from url
     const { planet } = useParams();
+    // Get primary color of planet
     const planetColor = colors[planet];
+    // Create array of planet routes
+    const planetList = [
+        "mercury",
+        "venus",
+        "earth",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+    ];
 
     return (
         <nav>
             <NavList>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/mercury"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Mercury
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/venus"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Venus
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/earth"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Earth
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/mars"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Mars
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/jupiter"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Jupiter
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/saturn"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Saturn
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/uranus"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Uranus
-                    </NavLink>
-                </NavItem>
-                <NavItem activeColor={planetColor}>
-                    <NavLink
-                        to="/neptune"
-                        className={({ isActive }) =>
-                            isActive ? "active" : ""
-                        }>
-                        Neptune
-                    </NavLink>
-                </NavItem>
+                {planetList.map((planet, index) => {
+                    return (
+                        <NavItem activeColor={planetColor} key={index}>
+                            <NavLink
+                                to={"/" + planet}
+                                className={({ isActive }) =>
+                                    isActive ? "active" : ""
+                                }>
+                                {planet}
+                            </NavLink>
+                        </NavItem>
+                    );
+                })}
             </NavList>
         </nav>
     );
