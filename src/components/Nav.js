@@ -23,8 +23,8 @@ const NavItem = styled.li`
     }
 
     .active {
-        border-bottom: 2px solid ${({ activeColor }) => activeColor};
-        padding-bottom: 0.4rem;
+        border-top: 4px solid ${({ activeColor }) => activeColor};
+        padding-top: 3.2rem;
     }
 `;
 
