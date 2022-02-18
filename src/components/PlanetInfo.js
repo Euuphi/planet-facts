@@ -17,8 +17,8 @@ import PlanetStats from "./PlanetStats";
 // Styled Components
 const Grid = styled.div`
     display: grid;
-    gap: 7.2rem 12.8rem;
-    grid-template-columns: 5fr 2fr;
+    row-gap: 7.2rem;
+    grid-template-columns: 1fr 35rem;
     justify-items: center;
     margin: 0 auto;
     max-width: 140rem;
