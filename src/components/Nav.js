@@ -18,11 +18,12 @@ const NavItem = styled.li`
     text-transform: uppercase;
 
     a {
-        color: #fff;
+        color: ${colors.lightgrey};
         text-decoration: none;
     }
 
     .active {
+        color: #fff;
         border-top: 4px solid ${({ activeColor }) => activeColor};
         padding-top: 3.2rem;
     }

@@ -1,6 +1,7 @@
 const colors = {
     main: "#070724",
     shade: "#38384f",
+    lightgrey: "#c1c1c8",
     grey: "#838392",
     mercury: "#419ebb",
     venus: "#eda249",
