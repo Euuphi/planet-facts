@@ -33,7 +33,7 @@ const Nav = () => {
     // Get name of planet from url
     const { planet } = useParams();
     // Get primary color of planet
-    const planetColor = colors[planet];
+    const planetColor = colors[planet].primary;
     // Create array of planet routes
     const planetList = [
         "mercury",

@@ -7,9 +7,10 @@ import { H3 } from "./Headings";
 
 const Button = styled.button`
     background-color: ${({ active, activeColor }) =>
-        active ? activeColor : colors.main};
+        active ? activeColor.primary : colors.main};
     border: 1px solid
-        ${({ active, activeColor }) => (active ? activeColor : colors.shade)};
+        ${({ active, activeColor }) =>
+            active ? activeColor.primary : colors.shade};
     color: #fff;
     display: inline-block;
     font-family: "Spartan";
@@ -30,7 +31,8 @@ const Button = styled.button`
     }
 
     & span {
-        color: ${({ active }) => (active ? "#a0cedd" : colors.grey)};
+        color: ${({ active, activeColor }) =>
+            active ? activeColor.secondary : colors.grey};
         padding-right: 3.2rem;
     }
 
