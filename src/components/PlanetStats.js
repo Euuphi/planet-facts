@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 //Themes
 import colors from "styles/colors";
+// Media Query
+import screen from "styles/screens";
 // Components
 import { H2, H4 } from "./Headings";
 
@@ -20,6 +22,10 @@ const StatBox = styled.div`
     flex-direction: column;
     padding: 2rem 2rem 2.4rem;
     width: 23%;
+
+    @media ${screen.laptopS} {
+        padding: 1.8rem 1.8rem 2.2rem;
+    }
 `;
 
 const StatTitle = styled(H4)`

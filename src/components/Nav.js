@@ -4,11 +4,17 @@ import styled from "styled-components";
 import { planetList } from "data/planetsList";
 // Themes
 import colors from "styles/colors";
+// Media Query
+import screen from "styles/screens";
 
 const NavList = styled.ul`
     display: flex;
     gap: 4.8rem;
     list-style: none;
+
+    @media ${screen.laptopS} {
+        gap: 3.6rem;
+    }
 `;
 
 const NavItem = styled.li`
