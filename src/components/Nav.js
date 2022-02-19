@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { planetList } from "data/planetsList";
 // Themes
 import colors from "styles/colors";
 
@@ -34,17 +35,6 @@ const Nav = () => {
     const { planet } = useParams();
     // Get primary color of planet
     const planetColor = colors[planet].primary;
-    // Create array of planet routes
-    const planetList = [
-        "mercury",
-        "venus",
-        "earth",
-        "mars",
-        "jupiter",
-        "saturn",
-        "uranus",
-        "neptune",
-    ];
 
     return (
         <nav>
