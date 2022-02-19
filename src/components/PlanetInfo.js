@@ -81,6 +81,7 @@ const PlanetInfo = () => {
 
     // Query for selected planet from all planets data
     const planetData = allPlanetsData[id];
+    // Query for selected planet image
     const planetImage = planetImages[id];
 
     return (
