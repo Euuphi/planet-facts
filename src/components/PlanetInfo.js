@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
+// Media Query
+import screen from "styles/screens";
 // Images
 import { planetImages } from "images/planetImages";
 import sourceIcon from "images/icon-source.svg";
@@ -18,10 +20,16 @@ import PlanetStats from "./PlanetStats";
 const Grid = styled.div`
     display: grid;
     row-gap: 7.2rem;
+    column-gap: 4.8rem;
     grid-template-columns: 1fr 35rem;
     justify-items: center;
     margin: 0 auto;
     max-width: 140rem;
+
+    @media ${screen.laptopS} {
+        grid-template-columns: 1fr;
+        row-gap: 4.8rem;
+    }
 `;
 
 const PlanetImageBox = styled.div`
@@ -29,6 +37,18 @@ const PlanetImageBox = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
+
+    @media ${screen.laptopS} {
+        height: 47.2rem;
+    }
+`;
+
+const Image = styled.img`
+    max-height: 56rem;
+
+    @media ${screen.laptopS} {
+        max-height: 45rem;
+    }
 `;
 
 const SurfaceImage = styled.img`
@@ -37,17 +57,30 @@ const SurfaceImage = styled.img`
     transform: translateY(90%);
 `;
 
+const PlanetInfoBox = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media ${screen.laptopS} {
+        display: grid;
+        align-items: center;
+        gap: 8rem;
+        grid-template-columns: 3fr 2fr;
+        width: 100%;
+    }
+`;
+
 const HeadingPrimary = styled(H1)`
     margin-bottom: 3.2rem;
 `;
 
-const PlanetInfoBox = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
 const PlanetDescriptionBox = styled.div`
-    height: 23.5rem;
+    height: 37rem;
+    position: relative;
+
+    @media ${screen.laptopS} {
+        height: 33rem;
+    }
 `;
 
 const Description = styled.p`
@@ -58,7 +91,10 @@ const Description = styled.p`
 
 const Source = styled(Description)`
     color: ${colors.grey};
-    margin-bottom: 3.2rem;
+    margin-bottom: 0;
+
+    position: absolute;
+    bottom: 0;
 `;
 
 const Link = styled.a`
@@ -88,7 +124,7 @@ const PlanetInfo = () => {
         <Section>
             <Grid>
                 <PlanetImageBox>
-                    <img
+                    <Image
                         src={
                             view === "structure"
                                 ? planetImage.structure
@@ -108,8 +144,8 @@ const PlanetInfo = () => {
                     )}
                 </PlanetImageBox>
                 <PlanetInfoBox>
-                    <HeadingPrimary>{planetData.name}</HeadingPrimary>
                     <PlanetDescriptionBox>
+                        <HeadingPrimary>{planetData.name}</HeadingPrimary>
                         <Description>{planetData[view].content}</Description>
                         <Source>
                             Source :{" "}

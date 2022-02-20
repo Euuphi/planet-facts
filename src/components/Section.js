@@ -8,6 +8,11 @@ const Section = styled.section`
     @media ${screen.laptop} {
         padding: 7.2rem;
     }
+
+    @media ${screen.laptopS} {
+        padding: 3.2rem;
+        padding-top: 8rem;
+    }
 `;
 
 export default Section;
