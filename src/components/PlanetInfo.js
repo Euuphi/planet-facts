@@ -46,6 +46,10 @@ const PlanetImageBox = styled.div`
 const Image = styled.img`
     max-height: 56rem;
 
+    @media ${screen.laptop} {
+        max-height: 50rem;
+    }
+
     @media ${screen.laptopS} {
         max-height: 45rem;
     }
@@ -75,6 +79,8 @@ const HeadingPrimary = styled(H1)`
 `;
 
 const PlanetDescriptionBox = styled.div`
+    /* Fixing height may break if there is too many characters in description
+        - Also see Source component */
     height: 37rem;
     position: relative;
 
@@ -93,8 +99,14 @@ const Source = styled(Description)`
     color: ${colors.grey};
     margin-bottom: 0;
 
+    /* Fixing position may break if there is too many characters in description
+        - Also see PlanetDescriptionBox component */
     position: absolute;
-    bottom: 0;
+    bottom: 4.4rem;
+
+    @media ${screen.laptopS} {
+        bottom: 0;
+    }
 `;
 
 const Link = styled.a`
