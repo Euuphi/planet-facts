@@ -10,7 +10,7 @@ const Section = styled.section`
     }
 
     @media ${screen.laptopS} {
-        padding: 3.2rem;
+        padding: 4.8rem;
         padding-top: 8rem;
     }
 `;

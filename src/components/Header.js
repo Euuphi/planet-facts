@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
+// Medai Query
+import screen from "styles/screens";
 // Components
 import Nav from "./Nav";
 
@@ -11,6 +13,12 @@ const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 2.4rem 4.8rem;
+
+    @media ${screen.laptopS} {
+        flex-direction: column;
+        gap: 4.8rem;
+        padding: 2.4rem 4.2rem 3.6rem;
+    }
 `;
 
 const Title = styled.span`

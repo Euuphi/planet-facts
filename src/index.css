@@ -63,10 +63,11 @@
         2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 --- Media Queries
-1280px (Laptop) - 80em
-768px (Tablet) - 48em
-384px (Mobile) - 24em
-
+        1360px - 85em : Laptop
+        1104px - 69em : Laptop (small)
+        896px - 56em : Tablet (large)
+        768px - 48em : Tablet 
+        384px - 24em : Mobile
 
 */
 
@@ -85,4 +86,11 @@ body {
     background-color: #070724;
     color: #fff;
     font-family: "Spartan", sans-serif;
+}
+
+/* Below 1104px - Laptop (small) */
+@media (max-width: 69em) {
+    html {
+        font-size: 56.25%;
+    }
 }

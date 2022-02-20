@@ -7,13 +7,19 @@ import colors from "styles/colors";
 // Media Query
 import screen from "styles/screens";
 
+const NavEl = styled.nav`
+    @media ${screen.laptopS} {
+        width: 100%;
+    }
+`;
+
 const NavList = styled.ul`
     display: flex;
     gap: 4.8rem;
     list-style: none;
 
     @media ${screen.laptopS} {
-        gap: 3.6rem;
+        justify-content: space-between;
     }
 `;
 
@@ -33,6 +39,12 @@ const NavItem = styled.li`
         color: #fff;
         border-top: 4px solid ${({ activeColor }) => activeColor};
         padding-top: 3.2rem;
+
+        @media ${screen.laptopS} {
+            border-top: none;
+            border-bottom: 4px solid ${({ activeColor }) => activeColor};
+            padding-bottom: 0.8rem;
+        }
     }
 `;
 
@@ -43,7 +55,7 @@ const Nav = () => {
     const planetColor = colors[planet].primary;
 
     return (
-        <nav>
+        <NavEl>
             <NavList>
                 {planetList.map((planet, index) => {
                     return (
@@ -59,7 +71,7 @@ const Nav = () => {
                     );
                 })}
             </NavList>
-        </nav>
+        </NavEl>
     );
 };
 
