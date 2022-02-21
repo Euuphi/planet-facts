@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
     @media ${screen.laptopS} {
         flex-direction: column;
         gap: 4.8rem;
-        padding: 2.4rem 4.2rem 3.6rem;
+        padding: 2.4rem 8rem 2.8rem; //Adjust Nav anchor link padding to change active border
     }
 `;
 

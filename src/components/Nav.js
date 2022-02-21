@@ -31,19 +31,24 @@ const NavItem = styled.li`
     text-transform: uppercase;
 
     a {
+        border-bottom: 4px solid transparent;
+        border-top: 4px solid transparent;
         color: ${colors.lightgrey};
+        padding: 3.2rem 0;
         text-decoration: none;
+
+        @media ${screen.laptopS} {
+            padding-bottom: 2.5rem;
+        }
     }
 
     .active {
         color: #fff;
         border-top: 4px solid ${({ activeColor }) => activeColor};
-        padding-top: 3.2rem;
 
         @media ${screen.laptopS} {
             border-top: none;
             border-bottom: 4px solid ${({ activeColor }) => activeColor};
-            padding-bottom: 0.8rem;
         }
     }
 `;
