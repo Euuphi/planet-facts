@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 // Themes
 import colors from "styles/colors";
+import screen from "styles/screens";
 // Components
 import { H3 } from "./Headings";
 
@@ -21,6 +22,10 @@ const Button = styled.button`
     text-transform: uppercase;
     width: 100%;
 
+    @media ${screen.tabletL} {
+        padding: 1.2rem 1.8rem;
+    }
+
     &:hover {
         /* Only change hover style if button is not active */
         ${({ active }) =>
@@ -34,6 +39,10 @@ const Button = styled.button`
         color: ${({ active, activeColor }) =>
             active ? activeColor.secondary : colors.grey};
         padding-right: 3.2rem;
+
+        @media ${screen.tabletL} {
+            padding-right: 1.8rem;
+        }
     }
 
     & ${H3} {
