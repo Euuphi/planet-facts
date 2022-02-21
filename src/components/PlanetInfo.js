@@ -72,6 +72,10 @@ const PlanetInfoBox = styled.div`
         grid-template-columns: 3fr 2fr;
         width: 100%;
     }
+
+    @media ${screen.tablet} {
+        gap: 5.6rem;
+    }
 `;
 
 const HeadingPrimary = styled(H1)`
