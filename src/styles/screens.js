@@ -3,7 +3,7 @@
         1360px - 85em : Laptop
         1104px - 69em : Laptop (small)
         896px - 56em : Tablet (large)
-        768px - 48em : Tablet 
+        800px - 50em : Tablet 
         384px - 24em : Mobile
 
 */
@@ -13,6 +13,7 @@ const sizes = {
     laptop: "85em", // 1360px
     laptopS: "69em", // 1104px
     tabletL: "56em", // 896px
+    tablet: "50em", // 800px
 };
 
 /**

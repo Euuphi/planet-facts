@@ -35,6 +35,10 @@ const StatTitle = styled(H4)`
 
 const StatText = styled(H2)`
     text-transform: uppercase;
+
+    @media ${screen.tablet} {
+        font-size: 3.2rem;
+    }
 `;
 
 const PlanetStats = ({ stats }) => {
