@@ -4,8 +4,11 @@ import styled from "styled-components";
 import colors from "styles/colors";
 // Medai Query
 import screen from "styles/screens";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import DesktopNav from "components/nav/DesktopNav";
+import MobileNav from "components/nav/MobileNav";
+import HamburgerMenu from "components/nav/HamburgerButton";
 
 const HeaderContainer = styled.header`
     border-bottom: 1px solid ${colors.shade};
@@ -14,10 +17,17 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     padding: 2.4rem 4.8rem;
 
+    position: relative; // To absolute position mobile navigaiton menu
+
     @media ${screen.laptopS} {
         flex-direction: column;
         gap: 4.8rem;
         padding: 2.4rem 8rem 2.8rem; //Adjust Nav anchor link padding to change active border
+    }
+
+    @media ${screen.tablet} {
+        flex-direction: row;
+        padding: 2.4rem 4.8rem;
     }
 `;
 
@@ -30,10 +40,11 @@ const Title = styled.span`
 `;
 
 const Header = () => {
+    const tablet = useMediaQuery(screen.tablet);
     return (
         <HeaderContainer>
             <Title>The Planets</Title>
-            <DesktopNav />
+            {tablet ? <MobileNav /> : <DesktopNav />}
         </HeaderContainer>
     );
 };
