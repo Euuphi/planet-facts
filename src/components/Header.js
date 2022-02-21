@@ -5,7 +5,7 @@ import colors from "styles/colors";
 // Medai Query
 import screen from "styles/screens";
 // Components
-import Nav from "./Nav";
+import DesktopNav from "components/nav/DesktopNav";
 
 const HeaderContainer = styled.header`
     border-bottom: 1px solid ${colors.shade};
@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <HeaderContainer>
             <Title>The Planets</Title>
-            <Nav />
+            <DesktopNav />
         </HeaderContainer>
     );
 };
