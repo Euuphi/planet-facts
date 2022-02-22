@@ -7,13 +7,23 @@ import screen from "styles/screens";
 // Components
 import { H2, H4 } from "./Headings";
 
-const FlexContainer = styled.div`
-    display: flex;
+const Container = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    justify-content: space-between;
+    gap: 4rem;
     grid-column: -1/1;
     margin: 0 auto;
     width: 100%;
+
+    @media ${screen.tabletM} {
+        gap: 2.4rem;
+    }
+
+    @media ${screen.tabletS} {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 2rem;
+    }
 `;
 
 const StatBox = styled.div`
@@ -21,7 +31,7 @@ const StatBox = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem 2rem 2.4rem;
-    width: 23%;
+    width: 100%;
 
     @media ${screen.laptopS} {
         padding: 1.8rem 1.8rem 2.2rem;
@@ -39,6 +49,10 @@ const StatText = styled(H2)`
     @media ${screen.tabletM} {
         font-size: 3.2rem;
     }
+
+    @media ${screen.tabletS} {
+        font-size: 3.6rem;
+    }
 `;
 
 const PlanetStats = ({ stats }) => {
@@ -50,7 +64,7 @@ const PlanetStats = ({ stats }) => {
     ];
 
     return (
-        <FlexContainer>
+        <Container>
             {planetStats.map((stat, index) => {
                 return (
                     <StatBox key={index}>
@@ -59,7 +73,7 @@ const PlanetStats = ({ stats }) => {
                     </StatBox>
                 );
             })}
-        </FlexContainer>
+        </Container>
     );
 };
 

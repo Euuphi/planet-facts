@@ -8,7 +8,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import DesktopNav from "components/nav/DesktopNav";
 import MobileNav from "components/nav/MobileNav";
-import HamburgerMenu from "components/nav/HamburgerButton";
 
 const HeaderContainer = styled.header`
     border-bottom: 1px solid ${colors.shade};
@@ -25,9 +24,12 @@ const HeaderContainer = styled.header`
         padding: 2.4rem 8rem 2.8rem; //Adjust Nav anchor link padding to change active border
     }
 
-    @media ${screen.tablet} {
+    @media ${screen.tabletM} {
+        padding: 2.4rem 4.8rem 2.8rem;
+    }
+
+    @media ${screen.tabletS} {
         flex-direction: row;
-        padding: 2.4rem 4.8rem;
     }
 `;
 
@@ -37,14 +39,18 @@ const Title = styled.span`
     font-weight: 500;
     letter-spacing: -0.15rem;
     text-transform: uppercase;
+
+    @media ${screen.laptopS} {
+        font-size: 3.1rem;
+    }
 `;
 
 const Header = () => {
-    const tablet = useMediaQuery(screen.tablet);
+    const tabletS = useMediaQuery(screen.tabletS);
     return (
         <HeaderContainer>
             <Title>The Planets</Title>
-            {tablet ? <MobileNav /> : <DesktopNav />}
+            {tabletS ? <MobileNav /> : <DesktopNav />}
         </HeaderContainer>
     );
 };

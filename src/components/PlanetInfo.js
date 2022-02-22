@@ -76,6 +76,11 @@ const PlanetInfoBox = styled.div`
     @media ${screen.tabletM} {
         gap: 5.6rem;
     }
+
+    @media ${screen.tabletS} {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
 `;
 
 const HeadingPrimary = styled(H1)`
@@ -91,12 +96,20 @@ const PlanetDescriptionBox = styled.div`
     @media ${screen.laptopS} {
         height: 33rem;
     }
+
+    @media ${screen.tabletS} {
+        height: 40rem;
+    }
 `;
 
 const Description = styled.p`
     font-size: 1.4rem;
     line-height: 2.5rem;
     margin-bottom: 1.6rem;
+
+    @media ${screen.lapotopS} {
+        font-size: 1.55rem;
+    }
 `;
 
 const Source = styled(Description)`
