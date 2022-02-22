@@ -81,6 +81,10 @@ const PlanetInfoBox = styled.div`
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
     }
+
+    @media ${screen.tabletMini} {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const HeadingPrimary = styled(H1)`
@@ -99,6 +103,10 @@ const PlanetDescriptionBox = styled.div`
 
     @media ${screen.tabletS} {
         height: 40rem;
+    }
+
+    @media ${screen.laptopS} {
+        height: 36rem;
     }
 `;
 
