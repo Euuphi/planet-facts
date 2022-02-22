@@ -21,6 +21,10 @@ const NavList = styled.ul`
     @media ${screen.laptopS} {
         justify-content: space-between;
     }
+
+    @media ${screen.tabletM} {
+        gap: 3.2rem;
+    }
 `;
 
 const NavItem = styled.li`
@@ -38,6 +42,7 @@ const NavItem = styled.li`
         text-decoration: none;
 
         @media ${screen.laptopS} {
+            font-size: 1.2rem;
             padding-bottom: 2.5rem;
         }
     }
@@ -53,7 +58,7 @@ const NavItem = styled.li`
     }
 `;
 
-const Nav = () => {
+const DesktopNav = () => {
     // Get name of planet from url
     const { planet } = useParams();
     // Get primary color of planet
@@ -80,4 +85,4 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+export default DesktopNav;

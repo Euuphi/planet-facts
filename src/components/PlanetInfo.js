@@ -73,7 +73,7 @@ const PlanetInfoBox = styled.div`
         width: 100%;
     }
 
-    @media ${screen.tablet} {
+    @media ${screen.tabletM} {
         gap: 5.6rem;
     }
 `;
