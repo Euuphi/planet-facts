@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // Theme
 import colors from "styles/colors";
+// Images
+import chevronIcon from "images/icon-chevron.svg";
+// Components
 import HamburgerButton from "./HamburgerButton";
+import { planetList } from "data/planetsList";
+import { useNavigate } from "react-router-dom";
 
 const Nav = styled.nav`
     background-color: ${colors.main};
@@ -29,10 +34,39 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
+    display: flex;
+    align-items: center;
+    gap: 3.6rem;
+
+    border-bottom: 1px solid ${colors.shade};
     height: 12.5%;
+    padding: 2.4rem;
+
+    &:last-child {
+        border-bottom: none;
+    }
+`;
+
+const CircleIcon = styled.span`
+    border-radius: 50%;
+    background-color: ${({ color }) => color};
+    height: 4rem;
+    width: 4rem;
+    display: inline-block;
+`;
+
+const NavItemTitle = styled.span`
+    font-size: 15px;
+    font-weight: 700;
+`;
+
+const ChevronIcon = styled.img`
+    margin-left: auto;
 `;
 
 const MobileNav = () => {
+    // Navigaiton variable
+    const navigate = useNavigate();
     // Menu state
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -40,12 +74,38 @@ const MobileNav = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const navClickHandler = (planet) => {
+        setMenuOpen(false);
+        navigate("/" + planet);
+    };
+
     return (
         <>
-            <HamburgerButton onClick={clickHandler} />
+            <HamburgerButton
+                onClick={clickHandler}
+                color={menuOpen ? "#44445a" : "#fff"}
+            />
             <Nav className={menuOpen ? "open" : ""}>
                 <NavList>
-                    <NavItem>Youasldjf;lkasjdf</NavItem>
+                    {planetList.map((planet) => {
+                        return (
+                            <NavItem
+                                onClick={() => {
+                                    navClickHandler(planet);
+                                }}
+                                key={planet}>
+                                <CircleIcon color={colors[planet].primary} />
+                                <NavItemTitle
+                                    style={{ textTransform: "uppercase" }}>
+                                    {planet}
+                                </NavItemTitle>
+                                <ChevronIcon
+                                    src={chevronIcon}
+                                    alt="Chevron icon"
+                                />
+                            </NavItem>
+                        );
+                    })}
                 </NavList>
             </Nav>
         </>
