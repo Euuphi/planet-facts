@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 // Themes
@@ -10,6 +10,8 @@ import { planetImages } from "images/planetImages";
 import sourceIcon from "images/icon-source.svg";
 // Data
 import * as data from "data/planetData.json";
+// Context
+import { NavContext } from "context/MenuContext";
 // Components
 import Section from "components/Section";
 import { H1 } from "./Headings";
@@ -17,6 +19,11 @@ import ButtonsSection from "./ButtonsSection";
 import PlanetStats from "./PlanetStats";
 
 // Styled Components
+
+const MainSection = styled(Section)`
+    display: ${({ visibility }) => (visibility ? "none" : "block")};
+`;
+
 const Grid = styled.div`
     display: grid;
     row-gap: 7.2rem;
@@ -143,6 +150,9 @@ const Link = styled.a`
 `;
 
 const PlanetInfo = () => {
+    // Nav menu context
+    const { menuOpen } = useContext(NavContext);
+
     // State to control what image is displayed
     const [view, setView] = useState("overview");
 
@@ -158,7 +168,7 @@ const PlanetInfo = () => {
     const planetImage = planetImages[id];
 
     return (
-        <Section>
+        <MainSection visibility={menuOpen}>
             <Grid>
                 <PlanetImageBox>
                     <Image
@@ -199,7 +209,7 @@ const PlanetInfo = () => {
                 </PlanetInfoBox>
                 <PlanetStats stats={planetData} />
             </Grid>
-        </Section>
+        </MainSection>
     );
 };
 

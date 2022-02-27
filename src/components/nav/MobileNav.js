@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 // Theme
 import colors from "styles/colors";
 // Images
 import chevronIcon from "images/icon-chevron.svg";
+// Context
+import { NavContext } from "context/MenuContext";
 // Components
 import HamburgerButton from "./HamburgerButton";
 import { planetList } from "data/planetsList";
@@ -68,7 +70,7 @@ const MobileNav = () => {
     // Navigaiton variable
     const navigate = useNavigate();
     // Menu state
-    const [menuOpen, setMenuOpen] = useState(false);
+    const { menuOpen, setMenuOpen } = useContext(NavContext);
 
     const clickHandler = () => {
         setMenuOpen(!menuOpen);
