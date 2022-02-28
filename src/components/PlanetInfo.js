@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 // Themes
@@ -14,9 +15,9 @@ import * as data from "data/planetData.json";
 import { NavContext } from "context/MenuContext";
 // Components
 import Section from "components/Section";
-import { H1 } from "./Headings";
-import ButtonsSection from "./ButtonsSection";
-import PlanetStats from "./PlanetStats";
+import { H1 } from "components/Headings";
+import PageViewNav from "components/nav/PageViewNav";
+import PlanetStats from "components/PlanetStats";
 
 // Styled Components
 
@@ -153,6 +154,9 @@ const PlanetInfo = () => {
     // Nav menu context
     const { menuOpen } = useContext(NavContext);
 
+    // Media query states
+    const tabletMini = useMediaQuery(screen.tabletMini);
+
     // State to control what image is displayed
     const [view, setView] = useState("overview");
 
@@ -168,48 +172,62 @@ const PlanetInfo = () => {
     const planetImage = planetImages[id];
 
     return (
-        <MainSection visibility={menuOpen}>
-            <Grid>
-                <PlanetImageBox>
-                    <Image
-                        src={
-                            view === "structure"
-                                ? planetImage.structure
-                                : planetImage.overview
-                        }
-                        alt={
-                            view === "structure"
-                                ? `Planet ${planetData.name} with half planet cutout to show internal structure`
-                                : `Planet ${planetData.name} from space`
-                        }
-                    />
-                    {view === "geology" && (
-                        <SurfaceImage
-                            src={planetImage.geology}
-                            alt={"Surface of " + planetData.name}
+        <>
+            {tabletMini && (
+                <PageViewNav
+                    activeColor={colors[id]}
+                    clickHandler={setView}
+                    view={view}
+                />
+            )}
+            <MainSection visibility={menuOpen}>
+                <Grid>
+                    <PlanetImageBox>
+                        <Image
+                            src={
+                                view === "structure"
+                                    ? planetImage.structure
+                                    : planetImage.overview
+                            }
+                            alt={
+                                view === "structure"
+                                    ? `Planet ${planetData.name} with half planet cutout to show internal structure`
+                                    : `Planet ${planetData.name} from space`
+                            }
                         />
-                    )}
-                </PlanetImageBox>
-                <PlanetInfoBox>
-                    <PlanetDescriptionBox>
-                        <HeadingPrimary>{planetData.name}</HeadingPrimary>
-                        <Description>{planetData[view].content}</Description>
-                        <Source>
-                            Source :{" "}
-                            <Link href={planetData[view].source}>
-                                Wikipedia <img src={sourceIcon} alt="Icon" />
-                            </Link>
-                        </Source>
-                    </PlanetDescriptionBox>
-                    <ButtonsSection
-                        activeColor={colors[id]}
-                        clickHandler={setView}
-                        view={view}
-                    />
-                </PlanetInfoBox>
-                <PlanetStats stats={planetData} />
-            </Grid>
-        </MainSection>
+                        {view === "geology" && (
+                            <SurfaceImage
+                                src={planetImage.geology}
+                                alt={"Surface of " + planetData.name}
+                            />
+                        )}
+                    </PlanetImageBox>
+                    <PlanetInfoBox>
+                        <PlanetDescriptionBox>
+                            <HeadingPrimary>{planetData.name}</HeadingPrimary>
+                            <Description>
+                                {planetData[view].content}
+                            </Description>
+                            <Source>
+                                Source :{" "}
+                                <Link href={planetData[view].source}>
+                                    Wikipedia{" "}
+                                    <img src={sourceIcon} alt="Icon" />
+                                </Link>
+                            </Source>
+                        </PlanetDescriptionBox>
+                        {!tabletMini && (
+                            <PageViewNav
+                                activeColor={colors[id]}
+                                clickHandler={setView}
+                                view={view}
+                            />
+                        )}
+                    </PlanetInfoBox>
+                    <PlanetStats stats={planetData} />
+                </Grid>
+            </MainSection>
+        </>
     );
 };
 

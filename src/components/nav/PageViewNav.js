@@ -1,10 +1,24 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // Themes
 import colors from "styles/colors";
 import screen from "styles/screens";
 // Components
-import { H3 } from "./Headings";
+import { H3 } from "../Headings";
+
+const FlexContainer = styled.nav`
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @media ${screen.tabletMini} {
+        border-bottom: 1px solid ${colors.shade};
+        flex-direction: row;
+        gap: 0;
+        padding: 0 2.4rem;
+    }
+`;
 
 const Button = styled.button`
     background-color: ${({ active, activeColor }) =>
@@ -13,7 +27,6 @@ const Button = styled.button`
         ${({ active, activeColor }) =>
             active ? activeColor.primary : colors.shade};
     color: #fff;
-    display: inline-block;
     font-family: "Spartan";
     font-size: 1.2rem;
     font-weight: 700;
@@ -26,6 +39,15 @@ const Button = styled.button`
         padding: 1.2rem 1.8rem;
     }
 
+    @media ${screen.tabletMini} {
+        background-color: transparent;
+        border: none;
+        border-bottom: ${({ active, activeColor }) =>
+            active ? "4px solid" + activeColor.primary : "none"};
+        padding: 2.4rem 0;
+        text-align: center;
+    }
+
     &:hover {
         /* Only change hover style if button is not active */
         ${({ active }) =>
@@ -35,6 +57,7 @@ const Button = styled.button`
             `}
     }
 
+    /* Number label text */
     & span {
         color: ${({ active, activeColor }) =>
             active ? activeColor.secondary : colors.grey};
@@ -43,20 +66,21 @@ const Button = styled.button`
         @media ${screen.tabletL} {
             padding-right: 1.8rem;
         }
+
+        @media ${screen.tabletMini} {
+            display: none !important;
+        }
     }
 
+    /* Button text */
     & ${H3} {
         display: inline-block;
     }
 `;
 
-const FlexContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-`;
+const PageViewNav = ({ clickHandler, view, activeColor }) => {
+    const tabletMini = useMediaQuery(screen.tabletMini);
 
-const ButtonsSection = ({ clickHandler, view, activeColor }) => {
     return (
         <FlexContainer>
             <Button
@@ -71,17 +95,17 @@ const ButtonsSection = ({ clickHandler, view, activeColor }) => {
                 activeColor={activeColor}
                 onClick={() => clickHandler("structure")}>
                 <H3 as="span">02</H3>
-                <H3>Internal Structure</H3>
+                <H3>{tabletMini ? "" : "Internal "}Structure</H3>
             </Button>
             <Button
                 active={view === "geology"}
                 activeColor={activeColor}
                 onClick={() => clickHandler("geology")}>
                 <H3 as="span">03</H3>
-                <H3>Surface Geology</H3>
+                <H3>Surface{tabletMini ? "" : " Geology"}</H3>
             </Button>
         </FlexContainer>
     );
 };
 
-export default ButtonsSection;
+export default PageViewNav;
