@@ -17,7 +17,7 @@ const sizes = {
     tabletL: "56em", // 896px
     tabletM: "50em", // 800px
     tabletS: "43em", // 688px
-    tabletMini: "35em", //560px
+    tabletMini: "32em", //512px
 };
 
 /**

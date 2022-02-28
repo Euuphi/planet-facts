@@ -38,6 +38,11 @@ const Grid = styled.div`
         grid-template-columns: 1fr;
         row-gap: 4.8rem;
     }
+
+    @media ${screen.tabletMini} {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 const PlanetImageBox = styled.div`
@@ -60,6 +65,10 @@ const Image = styled.img`
 
     @media ${screen.laptopS} {
         max-height: 45rem;
+    }
+
+    @media ${screen.tabletMini} {
+        transform: scale(0.6);
     }
 `;
 
@@ -107,7 +116,7 @@ const PlanetDescriptionBox = styled.div`
     }
 
     @media ${screen.tabletS} {
-        height: 32rem;
+        height: auto;
     }
 `;
 
@@ -118,6 +127,7 @@ const Description = styled.p`
 
     @media ${screen.lapotopS} {
         font-size: 1.55rem;
+        margin-bottom: 4rem;
     }
 `;
 
@@ -131,7 +141,10 @@ const Source = styled(Description)`
     bottom: 0rem;
 
     @media ${screen.laptopS} {
-        bottom: 0;
+        position: static;
+    }
+
+    @media ${screen.tabletS} {
     }
 `;
 

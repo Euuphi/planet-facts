@@ -24,6 +24,10 @@ const Container = styled.div`
         grid-template-columns: 1fr 1fr;
         row-gap: 2rem;
     }
+
+    @media ${screen.tabletMini} {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const StatBox = styled.div`
@@ -36,11 +40,21 @@ const StatBox = styled.div`
     @media ${screen.laptopS} {
         padding: 1.8rem 1.8rem 2.2rem;
     }
+
+    @media ${screen.tabletMini} {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 `;
 
 const StatTitle = styled(H4)`
     color: ${colors.grey};
     text-transform: uppercase;
+
+    @media ${screen.tabletMini} {
+        font-size: 1.2rem;
+    } ;
 `;
 
 const StatText = styled(H2)`
@@ -53,6 +67,10 @@ const StatText = styled(H2)`
     @media ${screen.tabletS} {
         font-size: 3.6rem;
     }
+
+    @media ${screen.tabletMini} {
+        font-size: 4rem;
+    } ;
 `;
 
 const PlanetStats = ({ stats }) => {
@@ -69,7 +87,7 @@ const PlanetStats = ({ stats }) => {
                 return (
                     <StatBox key={index}>
                         <StatTitle>{stat.name}</StatTitle>
-                        <StatText as="span">{stat.value}</StatText>
+                        <StatText as="p">{stat.value}</StatText>
                     </StatBox>
                 );
             })}

@@ -17,6 +17,10 @@ const Section = styled.section`
     @media ${screen.tabletS} {
         padding: 6.8rem;
     }
+
+    @media ${screen.tabletMini} {
+        padding: 4rem;
+    }
 `;
 
 export default Section;
