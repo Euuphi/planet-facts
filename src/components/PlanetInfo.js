@@ -27,7 +27,7 @@ const MainSection = styled(Section)`
 
 const Grid = styled.div`
     display: grid;
-    row-gap: 7.2rem;
+    row-gap: 6rem;
     column-gap: 4.8rem;
     grid-template-columns: 1fr 35rem;
     justify-items: center;
@@ -52,7 +52,7 @@ const PlanetImageBox = styled.div`
 `;
 
 const Image = styled.img`
-    max-height: 56rem;
+    max-height: 55rem;
 
     @media ${screen.laptop} {
         max-height: 50rem;
@@ -72,6 +72,7 @@ const SurfaceImage = styled.img`
 const PlanetInfoBox = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 1.8rem;
 
     @media ${screen.laptopS} {
         display: grid;
@@ -106,15 +107,11 @@ const PlanetDescriptionBox = styled.div`
     position: relative;
 
     @media ${screen.laptopS} {
-        height: 33rem;
+        height: 35rem;
     }
 
     @media ${screen.tabletS} {
         height: 40rem;
-    }
-
-    @media ${screen.laptopS} {
-        height: 36rem;
     }
 `;
 
@@ -130,12 +127,12 @@ const Description = styled.p`
 
 const Source = styled(Description)`
     color: ${colors.grey};
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 
     /* Fixing position may break if there is too many characters in description
         - Also see PlanetDescriptionBox component */
     position: absolute;
-    bottom: 4.4rem;
+    bottom: 0rem;
 
     @media ${screen.laptopS} {
         bottom: 0;
