@@ -13,6 +13,10 @@ const Section = styled.section`
         padding: 4.8rem;
         padding-top: 8rem;
     }
+
+    @media ${screen.tabletS} {
+        padding: 6.8rem;
+    }
 `;
 
 export default Section;

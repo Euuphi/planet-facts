@@ -12,7 +12,7 @@ const FlexContainer = styled.nav`
     flex-direction: column;
     gap: 1.6rem;
 
-    @media ${screen.tabletMini} {
+    @media ${screen.tabletS} {
         border-bottom: 1px solid ${colors.shade};
         flex-direction: row;
         gap: 0;
@@ -39,12 +39,10 @@ const Button = styled.button`
         padding: 1.2rem 1.8rem;
     }
 
-    @media ${screen.tabletMini} {
+    @media ${screen.tabletS} {
         background-color: transparent;
         border: none;
-        border-bottom: ${({ active, activeColor }) =>
-            active ? "4px solid" + activeColor.primary : "none"};
-        padding: 2.4rem 0;
+        padding: 3rem 0 0;
         text-align: center;
     }
 
@@ -67,7 +65,7 @@ const Button = styled.button`
             padding-right: 1.8rem;
         }
 
-        @media ${screen.tabletMini} {
+        @media ${screen.tabletS} {
             display: none !important;
         }
     }
@@ -75,11 +73,17 @@ const Button = styled.button`
     /* Button text */
     & ${H3} {
         display: inline-block;
+
+        @media ${screen.tabletS} {
+            padding-bottom: 2.5rem;
+            border-bottom: ${({ active, activeColor }) =>
+                active ? "4px solid" + activeColor.primary : "none"};
+        }
     }
 `;
 
 const PageViewNav = ({ clickHandler, view, activeColor }) => {
-    const tabletMini = useMediaQuery(screen.tabletMini);
+    const tabletS = useMediaQuery(screen.tabletS);
 
     return (
         <FlexContainer>
@@ -95,14 +99,14 @@ const PageViewNav = ({ clickHandler, view, activeColor }) => {
                 activeColor={activeColor}
                 onClick={() => clickHandler("structure")}>
                 <H3 as="span">02</H3>
-                <H3>{tabletMini ? "" : "Internal "}Structure</H3>
+                <H3>{tabletS ? "" : "Internal "}Structure</H3>
             </Button>
             <Button
                 active={view === "geology"}
                 activeColor={activeColor}
                 onClick={() => clickHandler("geology")}>
                 <H3 as="span">03</H3>
-                <H3>Surface{tabletMini ? "" : " Geology"}</H3>
+                <H3>Surface{tabletS ? "" : " Geology"}</H3>
             </Button>
         </FlexContainer>
     );

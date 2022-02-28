@@ -87,12 +87,8 @@ const PlanetInfoBox = styled.div`
     }
 
     @media ${screen.tabletS} {
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-    }
-
-    @media ${screen.tabletMini} {
         grid-template-columns: 1fr;
+        gap: 4rem;
     }
 `;
 
@@ -111,7 +107,7 @@ const PlanetDescriptionBox = styled.div`
     }
 
     @media ${screen.tabletS} {
-        height: 40rem;
+        height: 32rem;
     }
 `;
 
@@ -152,7 +148,7 @@ const PlanetInfo = () => {
     const { menuOpen } = useContext(NavContext);
 
     // Media query states
-    const tabletMini = useMediaQuery(screen.tabletMini);
+    const tabletS = useMediaQuery(screen.tabletS);
 
     // State to control what image is displayed
     const [view, setView] = useState("overview");
@@ -170,7 +166,7 @@ const PlanetInfo = () => {
 
     return (
         <>
-            {tabletMini && (
+            {tabletS && (
                 <PageViewNav
                     activeColor={colors[id]}
                     clickHandler={setView}
@@ -213,7 +209,7 @@ const PlanetInfo = () => {
                                 </Link>
                             </Source>
                         </PlanetDescriptionBox>
-                        {!tabletMini && (
+                        {!tabletS && (
                             <PageViewNav
                                 activeColor={colors[id]}
                                 clickHandler={setView}
