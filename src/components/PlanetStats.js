@@ -70,7 +70,11 @@ const StatText = styled(H2)`
 
     @media ${screen.tabletMini} {
         font-size: 4rem;
-    } ;
+    }
+
+    @media ${screen.mobile} {
+        font-size: 3.2rem;
+    }
 `;
 
 const PlanetStats = ({ stats }) => {

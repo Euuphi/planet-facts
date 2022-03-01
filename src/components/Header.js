@@ -33,6 +33,13 @@ const HeaderContainer = styled.header`
 
     @media ${screen.tabletS} {
         flex-direction: row;
+        padding-left: 6.8rem;
+        padding-right: 6.8rem;
+    }
+
+    @media ${screen.tabletMini} {
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 `;
 

@@ -6,7 +6,7 @@
         800px - 50em : Tablet (medium)
         688px - 43em : Tablet (small)
         560px - 35em : Tablet (mini)
-        384px - 24em : Mobile
+        416px - 26em : Mobile
 
 */
 
@@ -18,6 +18,7 @@ const sizes = {
     tabletM: "50em", // 800px
     tabletS: "43em", // 688px
     tabletMini: "32em", //512px
+    mobile: "26em", // 416px
 };
 
 /**

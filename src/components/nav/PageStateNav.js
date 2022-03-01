@@ -16,7 +16,11 @@ const FlexContainer = styled.nav`
         border-bottom: 1px solid ${colors.shade};
         flex-direction: row;
         gap: 0;
-        padding: 0 2.4rem;
+        justify-content: space-between;
+    }
+
+    @media ${screen.mobile} {
+        padding: 0 4rem;
     }
 `;
 
@@ -42,8 +46,17 @@ const Button = styled.button`
     @media ${screen.tabletS} {
         background-color: transparent;
         border: none;
-        padding: 3rem 0 0;
+        padding: 3rem 6.8rem 0;
         text-align: center;
+        width: auto;
+    }
+
+    @media ${screen.tabletMini} {
+        padding: 3rem 4rem 0;
+    }
+
+    @media ${screen.mobile} {
+        padding: 3rem 0 0;
     }
 
     &:hover {
