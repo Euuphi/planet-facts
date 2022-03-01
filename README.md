@@ -2,7 +2,7 @@
 
 ### Links
 
--   Live Site URL: [Planet Facts](https://your-live-site-url.com)
+-   Live Site URL: [Planet Facts](https://lucid-einstein-f5da70.netlify.app/)
 -   Solution URL: [Github](https://github.com/Euuphi/planet-facts)
 
 This is a solution to the [Planets Fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve coding skills by building realistic projects.
