@@ -69,7 +69,11 @@ const Image = styled.img`
     }
 
     @media ${screen.tabletMini} {
-        transform: scale(0.6);
+        transform: scale(0.8);
+    }
+
+    @media ${screen.mobile} {
+        transform: scale(0.7);
     }
 `;
 
