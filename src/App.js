@@ -8,7 +8,6 @@ import { PageStateProvider } from "context/PageContext";
 
 function App() {
     // TODO: Reset states when media query breakpoints are reached
-    // TODO: Reset state when different planet (page) is loaded
     return (
         <NavProvider>
             <PageStateProvider>

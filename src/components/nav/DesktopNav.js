@@ -58,7 +58,7 @@ const NavItem = styled.li`
     }
 `;
 
-const DesktopNav = () => {
+const DesktopNav = ({ navOnClick }) => {
     // Get name of planet from url
     const { planet } = useParams();
     // Get primary color of planet
@@ -74,7 +74,8 @@ const DesktopNav = () => {
                                 to={"/" + planet}
                                 className={({ isActive }) =>
                                     isActive ? "active" : ""
-                                }>
+                                }
+                                onClick={navOnClick}>
                                 {planet}
                             </NavLink>
                         </NavItem>

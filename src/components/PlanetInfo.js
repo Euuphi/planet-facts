@@ -18,6 +18,7 @@ import Section from "components/Section";
 import { H1 } from "components/Headings";
 import PageStateNav from "components/nav/PageStateNav";
 import PlanetStats from "components/PlanetStats";
+import { PageStateContext } from "context/PageContext";
 
 // Styled Components
 
@@ -164,7 +165,7 @@ const PlanetInfo = () => {
     const tabletS = useMediaQuery(screen.tabletS);
 
     // State to control what image is displayed
-    const [view, setView] = useState("overview");
+    const { view, setView } = useContext(PageStateContext);
 
     // Create object of imported planet data
     const allPlanetsData = data;

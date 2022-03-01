@@ -66,17 +66,18 @@ const ChevronIcon = styled.img`
     margin-left: auto;
 `;
 
-const MobileNav = () => {
+const MobileNav = ({ navOnClick }) => {
     // Navigaiton variable
     const navigate = useNavigate();
     // Menu state
     const { menuOpen, setMenuOpen } = useContext(NavContext);
 
-    const clickHandler = () => {
+    const menuButtonClickHandler = () => {
         setMenuOpen(!menuOpen);
     };
 
     const navClickHandler = (planet) => {
+        navOnClick();
         setMenuOpen(false);
         navigate("/" + planet);
     };
@@ -84,7 +85,7 @@ const MobileNav = () => {
     return (
         <>
             <HamburgerButton
-                onClick={clickHandler}
+                onClick={menuButtonClickHandler}
                 color={menuOpen ? "#44445a" : "#fff"}
             />
             <Nav className={menuOpen ? "open" : ""}>

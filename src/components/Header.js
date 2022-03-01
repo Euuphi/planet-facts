@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 // Themes
 import colors from "styles/colors";
@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import DesktopNav from "components/nav/DesktopNav";
 import MobileNav from "components/nav/MobileNav";
+import { PageStateContext } from "context/PageContext";
 
 const HeaderContainer = styled.header`
     border-bottom: 1px solid ${colors.shade};
@@ -47,10 +48,21 @@ const Title = styled.span`
 
 const Header = () => {
     const tabletS = useMediaQuery(screen.tabletS);
+
+    const { setView } = useContext(PageStateContext);
+
+    const navigationClickHandler = () => {
+        setView("overview");
+    };
+
     return (
         <HeaderContainer>
             <Title>The Planets</Title>
-            {tabletS ? <MobileNav /> : <DesktopNav />}
+            {tabletS ? (
+                <MobileNav navOnClick={navigationClickHandler} />
+            ) : (
+                <DesktopNav navOnClick={navigationClickHandler} />
+            )}
         </HeaderContainer>
     );
 };
