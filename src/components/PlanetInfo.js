@@ -16,7 +16,7 @@ import { NavContext } from "context/MenuContext";
 // Components
 import Section from "components/Section";
 import { H1 } from "components/Headings";
-import PageViewNav from "components/nav/PageViewNav";
+import PageStateNav from "components/nav/PageStateNav";
 import PlanetStats from "components/PlanetStats";
 
 // Styled Components
@@ -180,7 +180,7 @@ const PlanetInfo = () => {
     return (
         <>
             {tabletS && (
-                <PageViewNav
+                <PageStateNav
                     activeColor={colors[id]}
                     clickHandler={setView}
                     view={view}
@@ -223,7 +223,7 @@ const PlanetInfo = () => {
                             </Source>
                         </PlanetDescriptionBox>
                         {!tabletS && (
-                            <PageViewNav
+                            <PageStateNav
                                 activeColor={colors[id]}
                                 clickHandler={setView}
                                 view={view}

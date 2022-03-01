@@ -75,14 +75,15 @@ const Button = styled.button`
         display: inline-block;
 
         @media ${screen.tabletS} {
-            padding-bottom: 2.5rem;
+            color: ${({ active }) => (active ? "#fff" : colors.grey)};
             border-bottom: ${({ active, activeColor }) =>
                 active ? "4px solid" + activeColor.primary : "none"};
+            padding-bottom: 2.5rem;
         }
     }
 `;
 
-const PageViewNav = ({ clickHandler, view, activeColor }) => {
+const PageStateNav = ({ clickHandler, view, activeColor }) => {
     const tabletS = useMediaQuery(screen.tabletS);
 
     return (
@@ -112,4 +113,4 @@ const PageViewNav = ({ clickHandler, view, activeColor }) => {
     );
 };
 
-export default PageViewNav;
+export default PageStateNav;
