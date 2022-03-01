@@ -4,14 +4,19 @@ import { NavProvider } from "context/MenuContext";
 
 // Components
 import Planets from "pages/Planets";
+import { PageStateProvider } from "context/PageContext";
 
 function App() {
+    // TODO: Reset states when media query breakpoints are reached
+    // TODO: Reset state when different planet (page) is loaded
     return (
         <NavProvider>
-            <Routes>
-                <Route path="/" element={<Navigate to="/mercury" />} />
-                <Route path="/:planet" element={<Planets />} />
-            </Routes>
+            <PageStateProvider>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/mercury" />} />
+                    <Route path="/:planet" element={<Planets />} />
+                </Routes>
+            </PageStateProvider>
         </NavProvider>
     );
 }
