@@ -44,11 +44,11 @@ Users should be able to:
 
 ### Built with
 
--   [React](https://reactjs.org/) - JS Library Framework
--   [Styled Components](https://styled-components.com/) - For styles
--   [Material UI](https://mui.com/) - For responsive design
+-   [React](https://reactjs.org/) - JavaScript Framework
+-   [Styled Components](https://styled-components.com/) - CSS styles
+-   [React Router](https://reactrouter.com/) - Multi page routing
+-   [Material UI](https://mui.com/) - Responsive design
 -   Semantic HTML5 markup
--   CSS custom properties
 -   Flexbox
 -   CSS Grid
 -   Desktop-first workflow
