@@ -110,7 +110,7 @@ const HeadingPrimary = styled(H1)`
     margin-bottom: 3.2rem;
 `;
 
-const PlanetDescriptionBox = styled.div`
+const PlanetDescriptionBox = styled.article`
     /* Fixing height may break if there is too many characters in description
         - Also see Source component */
     height: 37rem;
@@ -191,7 +191,7 @@ const PlanetInfo = () => {
                     view={view}
                 />
             )}
-            <MainSection visibility={menuOpen}>
+            <MainSection as="main" visibility={menuOpen}>
                 <Grid>
                     <PlanetImageBox>
                         <Image
