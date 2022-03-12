@@ -84,7 +84,7 @@ const Button = styled.button`
     }
 
     /* Button text */
-    & ${H3} {
+    & p {
         display: inline-block;
 
         @media ${screen.tabletS} {
@@ -106,21 +106,21 @@ const PageStateNav = ({ clickHandler, view, activeColor }) => {
                 activeColor={activeColor}
                 onClick={() => clickHandler("overview")}>
                 <H3 as="span">01</H3>
-                <H3>Overview</H3>
+                <H3 as="p">Overview</H3>
             </Button>
             <Button
                 active={view === "structure"}
                 activeColor={activeColor}
                 onClick={() => clickHandler("structure")}>
                 <H3 as="span">02</H3>
-                <H3>{tabletS ? "" : "Internal "}Structure</H3>
+                <H3 as="p">{tabletS ? "" : "Internal "}Structure</H3>
             </Button>
             <Button
                 active={view === "geology"}
                 activeColor={activeColor}
                 onClick={() => clickHandler("geology")}>
                 <H3 as="span">03</H3>
-                <H3>Surface{tabletS ? "" : " Geology"}</H3>
+                <H3 as="p">Surface{tabletS ? "" : " Geology"}</H3>
             </Button>
         </FlexContainer>
     );
